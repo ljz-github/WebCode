@@ -1,0 +1,3 @@
+SELECT  county ,town ,sum(case landtype when 'forest' then area END) v1,
+
+sum(case landtype when 'origrain' then area END) v2 from (select county, town, landtype, sum(shpArea) area from f_landtype2017 GROUP BY town ,landtype) group by town;
